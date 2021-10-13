@@ -15,7 +15,9 @@ module.exports = {
       },
       backgroundColor: {
         btn: "#7c6f55",
-        primary: "#313a4d",
+        btnHover: "#685b42",
+        primary: "#273036",
+        custom: "#2f2f2f",
       },
     },
   },

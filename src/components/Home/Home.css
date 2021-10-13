@@ -24,7 +24,7 @@
 .radial-gradient-text {
   z-index: 10;
   background: radial-gradient(
-    ellipse at center,
+    ellipse at right,
     transparent 0,
     transparent 30%,
     #000 138%,
@@ -45,9 +45,11 @@
   );
 }
 
+/* ----------------------------- //media queries ----------------------------- */
+
 @media (min-aspect-ratio: 16/9) {
   .myVid iframe {
-    height: 57vw;
+    height: 56.6vw;
   }
 }
 @media (max-aspect-ratio: 16/9) {
@@ -57,7 +59,7 @@
 }
 @media (min-aspect-ratio: 4/3) {
   .myVid iframe {
-    height: 56vw;
+    height: 56.6vw;
     width: 100%;
   }
 }
