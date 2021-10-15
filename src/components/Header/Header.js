@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import logo from "../../images/logo/jhrlogo2019white8fba.png";
 import logoSvg from "../../images/logo/logo.svg";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
-    <header className="leading-normal tracking-normal text-white gradient overflow-hidden">
+    <header className="sticky top-0 z-30 leading-normal tracking-normal text-white gradient overflow-hidden">
       {/* <!--Nav--> */}
       <nav
         id="header"
@@ -48,12 +49,17 @@ const Header = () => {
                 Home
               </NavLink>
 
-              <NavLink
-                to="/"
+              <HashLink
+                as={Link}
+                to={{
+                  pathname: "/home",
+                  hash: "#suites",
+                  state: { fromDashboard: true },
+                }}
                 className="text-gray-300  hover:bg-gray-700 hover:text-secondary px-3 py-2 rounded-md text-xl font-medium"
               >
                 Suits
-              </NavLink>
+              </HashLink>
 
               <NavLink
                 to="/dining"

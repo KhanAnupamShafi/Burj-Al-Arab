@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Suites from "../Suites/Suites";
 
+import banner from "../../images/banner/banner-1.jpeg";
 import "./Home.css";
 
 const Home = () => {
@@ -94,17 +95,58 @@ const Home = () => {
 
       {/* /* --------------------------------- main section -------------------------------- */}
 
-      <section className="text-gray-600 body-font bg-primary">
+      <section className="text-white body-font bg-primary">
+        <div class="mx-auto container bg-primary px-6 py-12">
+          <div class="flex flex-col justify-center items-center w-full">
+            <h1 class="f-f-d-s text-2xl lg:text-6xl leading-normal tracking-wide text-white text-center">
+              Upcoming Events
+            </h1>
+          </div>
+          <div class="lg:flex items-center justify-center mt-4 lg:mt-32">
+            <div class="lg:w-1/2 h-1/3">
+              <img
+                src="https://cdn.tuk.dev/assets/templates/Fabterior/Section7(1).png"
+                alt="An elegant bathroom with a bathtub,basin and other fancy items"
+                className="w-full h-full"
+              />
+            </div>
+            <div class="mt-4 lg:mt-0 py-12 px-8 lg:px-12 bg-gray-700 lg:w-2/5 lg:-ml-12 text-white f-f-l">
+              <h2 class="lg:text-4xl text-2xl font-normal leading-9 pb-6 f-f-d-s">
+                Extra Space
+              </h2>
+              <div class="flex items-center font-lato">
+                <p class="text-sm lg:text-lg font-normal color-white mb-4">
+                  Nov 01 - 10
+                </p>
+                <span aria-hidden="true" class="dot-color text-2xl px-2 mb-4">
+                  &#8226;
+                </span>
+                <p class="text-sm lg:text-lg font-normal color-white mb-4">
+                  James Haul
+                </p>
+              </div>
+              <div class="pb-6 leading-6 f-f-l text-base lg:text-2xl lg:leading-9">
+                Our mission is to help people visualize, create & maintain
+                beautiful homes. We bring to you inspiring visuals of cool
+                homes, specific spaces, architectural marvels, and new design
+                trends.
+              </div>
+              <button class="border-b p-1 border-white lg:text-2xl text-base leading-6 f-f-l font-bold focus:border-b-0 focus:outline-none focus:ring-2 focus:ring-gray-400">
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
         <div className="container px-5 py-24 mx-auto flex flex-wrap">
           <div className="lg:w-2/3 mx-auto">
             <div className="flex flex-wrap w-full bg-gray-100 py-32 px-10 relative mb-4">
               <img
                 alt="gallery"
-                className="w-full object-cover h-full object-center block opacity-25 absolute inset-0"
-                src="https://dummyimage.com/820x340"
+                className="w-full object-cover h-full object-center block filter brightness-50 absolute inset-0"
+                src={banner}
               />
               <div className="text-center relative z-10 w-full">
-                <h2 className="text-2xl text-gray-900 font-medium title-font mb-2">
+                <h2 className="text-2xl text-white font-medium title-font mb-2">
                   Shooting Stars
                 </h2>
                 <p className="leading-relaxed">
@@ -112,7 +154,7 @@ const Home = () => {
                 </p>
                 <Link
                   to="/suits"
-                  className="mt-3 text-indigo-500 inline-flex items-center"
+                  className="mt-3 text-red-500 inline-flex items-center"
                 >
                   Learn More
                   <svg
