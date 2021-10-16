@@ -15,13 +15,13 @@ const Suites = () => {
 
   return (
     <section id="suites" className="antialiased bg-black font-sans">
-      <div class="flex flex-col justify-center items-center w-full">
-        <h1 class="f-f-d-s text-2xl lg:text-6xl leading-normal tracking-wide text-white text-center">
-          Upcoming Events
+      <div className="p-16 flex flex-col  w-full">
+        <h1 className="f-f-d-s gradient-text text-2xl lg:text-6xl leading-normal tracking-wide text-white text-center">
+          Rooms & Suites
         </h1>
       </div>
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-wrap items-center justify-center min-h-screen">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-wrap justify-around items-center min-h-screen">
           {/* /* ------------------------------- single card ------------------------------ */}
 
           {suites?.map((suite) => (

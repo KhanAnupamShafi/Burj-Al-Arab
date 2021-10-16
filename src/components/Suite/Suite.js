@@ -52,7 +52,7 @@ const Suite = () => {
         className="w-full h-96 sm:h-screen"
       />
 
-      <div className="heading-container p-5 absolute flex flex-col bottom-80  sm:bottom-0   sm:justify-end sm:items-start w-full">
+      <div className="heading-container  absolute flex flex-col bottom-80  sm:bottom-0   sm:justify-end sm:items-start w-full">
         <p className="text-normal sm:text-2xl font-light text-white">
           Burj-Al-Arab
         </p>

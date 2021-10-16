@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import useAuth from "../../Hooks/useAuth";
 import logo from "../../images/logo/jhrlogo2019white8fba.png";
 import logoSvg from "../../images/logo/logo.svg";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const { user, logOut } = useAuth();
   return (
     <header className="sticky top-0 z-30 leading-normal tracking-normal text-white gradient overflow-hidden">
       {/* <!--Nav--> */}
+
       <nav
         id="header"
         className="relative justify-between w-full top-0 text-white "
       >
-        <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+        <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-5 py-2">
           <div className="w-full flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <a
               className="toggleColour text-white no-underline hover:no-underline flex font-bold text-2xl lg:text-4xl"
@@ -37,7 +40,7 @@ const Header = () => {
 
           <div
             className={
-              "w-full container justify-end  mt-4 lg:mt-auto lg:ml-8 lg:w-auto lg:flex flex-grow" +
+              "w-full container justify-around  mt-4 lg:mt-auto lg:ml-8 lg:w-auto lg:flex flex-grow" +
               (navbarOpen ? "flex" : " hidden")
             }
           >
@@ -50,15 +53,10 @@ const Header = () => {
               </NavLink>
 
               <HashLink
-                as={Link}
-                to={{
-                  pathname: "/home",
-                  hash: "#suites",
-                  state: { fromDashboard: true },
-                }}
+                to="/home#suites"
                 className="text-gray-300  hover:bg-gray-700 hover:text-secondary px-3 py-2 rounded-md text-xl font-medium"
               >
-                Suits
+                Rooms & Suites
               </HashLink>
 
               <NavLink
@@ -82,27 +80,64 @@ const Header = () => {
                 Offers
               </a>
             </div>
-            <div className="ml-auto">
-              <button
-                id="navAction"
-                className="bg-btn text-white font-bold rounded-sm mt-4 lg:my-2 py-3 px-6 shadow-2xl  focus:outline-none focus:shadow-outline transform-gpu transition hover:bg-btnHover hover:delay-150 hover:scale-105 duration-300 ease-in-out"
-              >
-                Log In
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 ml-2 mb-1 inline"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                  />
-                </svg>
-              </button>
+            <div className="py-1">
+              {!user.email ? (
+                <Link to="/login">
+                  <button
+                    id="navAction"
+                    className="bg-btn text-white font-bold rounded-sm lg:my-2 py-3 px-6 shadow-2xl  focus:outline-none focus:shadow-outline transform-gpu transition hover:bg-btnHover hover:delay-150 hover:scale-105 duration-300 ease-in-out"
+                  >
+                    Log In
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 ml-2 mb-1 inline"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                      />
+                    </svg>
+                  </button>
+                </Link>
+              ) : (
+                <>
+                  <div className="w-full flex mx-auto justify-center gap-4 items-center">
+                    <h1>Welcome, {user?.displayName}</h1>
+                    <img
+                      className="h-12 w-12 ml-0 rounded-full mx-auto"
+                      src={user?.photoURL}
+                      alt=""
+                    />
+
+                    <button
+                      id="navAction"
+                      className="bg-btn text-white font-bold rounded-sm shadow-2xl lg:my-2 py-3  px-6  focus:outline-none focus:shadow-outline transform-gpu transition hover:bg-btnHover hover:delay-150 hover:scale-105 duration-300 ease-in-out"
+                      onClick={logOut}
+                    >
+                      Log Out
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 ml-2 mb-1 inline"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
